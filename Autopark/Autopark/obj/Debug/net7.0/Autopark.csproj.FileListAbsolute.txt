@@ -1,0 +1,15 @@
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\bin\Debug\net7.0\Autopark.exe
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\bin\Debug\net7.0\Autopark.deps.json
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\bin\Debug\net7.0\Autopark.runtimeconfig.json
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\bin\Debug\net7.0\Autopark.dll
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\bin\Debug\net7.0\Autopark.pdb
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\obj\Debug\net7.0\Autopark.csproj.AssemblyReference.cache
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\obj\Debug\net7.0\Autopark.GeneratedMSBuildEditorConfig.editorconfig
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\obj\Debug\net7.0\Autopark.AssemblyInfoInputs.cache
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\obj\Debug\net7.0\Autopark.AssemblyInfo.cs
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\obj\Debug\net7.0\Autopark.csproj.CoreCompileInputs.cache
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\obj\Debug\net7.0\Autopark.dll
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\obj\Debug\net7.0\refint\Autopark.dll
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\obj\Debug\net7.0\Autopark.pdb
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\obj\Debug\net7.0\Autopark.genruntimeconfig.cache
+D:\.NET projects\DevIncubatorProjects\Autopark\Autopark\Autopark\obj\Debug\net7.0\ref\Autopark.dll
