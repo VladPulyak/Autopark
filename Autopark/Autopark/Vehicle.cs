@@ -25,6 +25,8 @@ namespace Autopark
             TankCapacity = tankCapacity;
         }
 
+        public int CarId { get; set; }
+        public List<Rent> OrdersList { get; set; } = new List<Rent>();
         public VehicleType Type { get; private set; }
         public string Model { get; private set; }
         public string RegistrationNumber { get; set; }
@@ -33,10 +35,27 @@ namespace Autopark
         public int Mileage { get; set; }
         public Color Color { get; set; }
         public double TankCapacity { get; private set; }
+        public AbstractEngine Engine { get; set; }
+
+        public double GetTotalIncome()
+        {
+            double totalIncome = 0;
+
+            foreach (var rent in OrdersList)
+            {
+                totalIncome += rent.RentCost;
+            }
+            return totalIncome;
+        }
+
+        public double GetTotalProfit()
+        {
+            return GetTotalIncome() - GetCalcTaxPerMonth();
+        }
 
         public double GetCalcTaxPerMonth()
         {
-            return (Weight * 0.0013) + (Type.TaxCoefficient * 30) + 5;
+            return (Weight * 0.013) + (Type.TaxCoefficient * Engine.TaxCoefficient * 30) + 5;
         }
 
         public override string ToString()
@@ -46,24 +65,26 @@ namespace Autopark
             return resultString;
         }
 
-        public int CompareTo(object? secondTax)
+        public override bool Equals(object? obj)
         {
-            double taxOfFirstCar = GetCalcTaxPerMonth();
+            var vehicle = obj as Vehicle;
 
-            if (taxOfFirstCar > (double)secondTax)
+            if (vehicle != null)
             {
-                return -1;
-            }
-            else if (taxOfFirstCar < (double)secondTax)
-            {
-                return 1;
+                if ((Type == vehicle.Type) && (Model == vehicle.Model))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return 0;
+                throw new InvalidCastException("This object is not vehicle");
             }
         }
-
         public int CompareTo(Vehicle? secondVehicle)
         {
             double taxOfFirstVehicle = GetCalcTaxPerMonth();

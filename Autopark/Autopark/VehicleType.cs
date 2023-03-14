@@ -19,6 +19,7 @@ namespace Autopark
             TaxCoefficient = taxCoefficient;
         }
 
+        public int TypeId { get; set; }
         public string TypeName { get; set; }
         public double TaxCoefficient { get; set; }
 
