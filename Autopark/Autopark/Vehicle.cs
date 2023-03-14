@@ -58,12 +58,12 @@ namespace Autopark
             return (Weight * 0.013) + (Type.TaxCoefficient * Engine.TaxCoefficient * 30) + 5;
         }
 
-        public override string ToString()
-        {
-            string resultString = $"{Type}, {Model}, {RegistrationNumber}, {Weight}, {ManufactureYear}, {Mileage}, {Color}, {TankCapacity}, {GetCalcTaxPerMonth()}";
-            Console.WriteLine(resultString);
-            return resultString;
-        }
+        //public override string ToString()
+        //{
+        //    string resultString = $"{Type}, {Model}, {RegistrationNumber}, {Weight}, {ManufactureYear}, {Mileage}, {Color}, {TankCapacity}, {GetCalcTaxPerMonth()}";
+        //    Console.WriteLine(resultString);
+        //    return resultString;
+        //}
 
         public override bool Equals(object? obj)
         {
@@ -103,5 +103,7 @@ namespace Autopark
                 return 0;
             }
         }
+
+
     }
 }

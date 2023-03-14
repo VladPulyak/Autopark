@@ -71,6 +71,33 @@ namespace Autopark
             }
         }
 
+        public Dictionary<string, int> LoadOrders(string path)
+        {
+            var spares = new Dictionary<string, int>();
+            using (StreamReader reader = new StreamReader(path))
+            {
+                var line = string.Empty;
+
+                while ((line = reader.ReadLine()) != null)
+                {
+                    line = line.Replace("\"", "");
+                    var parameters = line.Split(", ");
+                    foreach (var word in parameters)
+                    {
+                        if (spares.Keys.Contains(word))
+                        {
+                            spares[word]++;
+                        }
+                        else
+                        {
+                            spares.Add(word, 1);
+                        }
+                    }
+                }
+            }
+            return spares;
+        }
+
         private VehicleType CreateVehicleType(string csvString)
         {
             var parameters = csvString.Split(", ");
@@ -148,6 +175,24 @@ namespace Autopark
                 totalProfit += vehicle.GetTotalProfit();
             }
             return totalProfit;
+        }
+
+        public void Print(Vehicle vehicle)
+        {
+            Console.WriteLine("{0,-5}{1,-10}{2,-25}{3,-15}{4,-15}{5,-10}{6,-10}{7,-10}{8,-10}{9,-10}{10,-10}",
+                "Id", "Type", "ModelName", "Number", "Weight (kg)", "Year", "Mileage", "Color", "Income", "Tax", "Profit");
+            Console.WriteLine("{0,-5}{1,-10}{2,-25}{3,-15}{4,-15}{5,-10}{6,-10}{7,-10}{8,-10}{9,-10}{10,-10}",
+                                                                            vehicle.CarId,
+                                                                            vehicle.Type.TypeName,
+                                                                            vehicle.Model,
+                                                                            vehicle.RegistrationNumber,
+                                                                            vehicle.Weight,
+                                                                            vehicle.ManufactureYear,
+                                                                            vehicle.Mileage,
+                                                                            vehicle.Color,
+                                                                            vehicle.GetTotalIncome().ToString("0.00"),
+                                                                            vehicle.GetCalcTaxPerMonth().ToString("0.00"),
+                                                                            vehicle.GetTotalProfit().ToString("0.00"));
         }
 
         public void Print()
