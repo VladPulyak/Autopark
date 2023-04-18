@@ -8,6 +8,9 @@ namespace Autopark
 {
     internal class Rent
     {
+        
+        //Where is default constructor?
+        
         public Rent(DateTime rentDate, double rentCost)
         {
             RentDate = rentDate;

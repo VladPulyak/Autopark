@@ -11,8 +11,8 @@ namespace Autopark
     {
         public Collections(string typesFileName, string rentsFileName, string vehiclesFileName)
         {
-            TypesList = new List<VehicleType>();
-            VehiclesList = new List<Vehicle>();
+            TypesList = new List<VehicleType>(); // No need to initialise it here
+            VehiclesList = new List<Vehicle>(); // No need to initialise it here
             TypesList = ParseVehicleTypes(typesFileName);
             VehiclesList = ParseVehicles(vehiclesFileName);
             LoadRents(rentsFileName);
@@ -25,7 +25,7 @@ namespace Autopark
             var listWithVehicleTypes = new List<VehicleType>();
             using (StreamReader reader = new StreamReader(path))
             {
-                var line = string.Empty;
+                var line = string.Empty; // No need to initialise it here
 
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -42,7 +42,7 @@ namespace Autopark
             var listWithVehicles = new List<Vehicle>();
             using (StreamReader reader = new StreamReader(path))
             {
-                var line = string.Empty;
+                var line = string.Empty; // No need to initialise it here
 
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -116,7 +116,7 @@ namespace Autopark
             var color = (Color)Enum.Parse(typeof(Color), parameters[7]);
             AbstractEngine engine;
 
-            if (parameters[8] == "Diesel")
+            if (parameters[8] == "Diesel") // You can use "switch" instead of multiple "if else".
             {
                 engine = new DieselEngine(double.Parse(parameters[9]), double.Parse(parameters[10]));
                 engine.TypeName = parameters[8];
@@ -177,7 +177,7 @@ namespace Autopark
             return totalProfit;
         }
 
-        public void Print(Vehicle vehicle)
+        public void Print(Vehicle vehicle) //Why did you add this print?
         {
             Console.WriteLine("{0,-5}{1,-10}{2,-25}{3,-15}{4,-15}{5,-10}{6,-10}{7,-10}{8,-10}{9,-10}{10,-10}",
                 "Id", "Type", "ModelName", "Number", "Weight (kg)", "Year", "Mileage", "Color", "Income", "Tax", "Profit");

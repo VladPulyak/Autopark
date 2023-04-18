@@ -9,7 +9,7 @@ namespace Autopark
     internal class ElectricalEngine : AbstractEngine
     {
         public double ElectricityConsumption { get; set; }
-        public ElectricalEngine(double electricityConsumption)
+        public ElectricalEngine(double electricityConsumption) // There should be 'base' construction
         {
             ElectricityConsumption = electricityConsumption;
         }

@@ -32,7 +32,7 @@ namespace Autopark
         public override string ToString()
         {
             string resultString = $"{TypeName}, {TaxCoefficient}";
-            Console.WriteLine(resultString);
+            Console.WriteLine(resultString); //It should not be in overrided ToString() method
             return resultString;
         }
     }

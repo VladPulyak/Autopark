@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Autopark
 {
-    internal class CustomStack<T> where T : class
+    internal class CustomStack<T> where T : class // Discuss realisation
     {
-        public CustomStack(int countOsElements)
+        public CustomStack(int countOsElements) //Naming
         {
             Count = countOsElements;
             Stack = new T[countOsElements];
@@ -16,12 +16,12 @@ namespace Autopark
 
         public CustomStack(IEnumerable<T> enumerable)
         {
-            Stack = enumerable.Reverse().ToArray();
-            Count = enumerable.Count();
+            Stack = enumerable.Reverse().ToArray(); // No need to reverse it
+            Count = enumerable.Count(); //?
         }
 
         private T[] Stack { get; set; }
-        public int Count { get; set; } = 0;
+        public int Count { get; set; } = 0; // No need to initialize here
 
         public void Push(T element)
         {
@@ -31,7 +31,7 @@ namespace Autopark
 
         public T Pop()
         {
-            T item = Stack[Count];
+            T item = Stack[Count]; // Should be count - 1
             Count++;
             Stack[Count - 1] = null;
             return item;

@@ -8,6 +8,8 @@ namespace Autopark
 {
     internal abstract class AbstractCombustionEngine : AbstractEngine
     {
+        // Where is constructor with parameters?
+        
         public double EngineCapacity { get; set; }
         public double FuelConsumptionPer100 { get; set; }
 

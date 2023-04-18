@@ -8,7 +8,7 @@ namespace Autopark
 {
     internal class GasolineEngine : AbstractCombustionEngine
     {
-        public GasolineEngine(double engineCapacity, double fuelConsumptionPer100)
+        public GasolineEngine(double engineCapacity, double fuelConsumptionPer100) // There should be 'base' construction
         {
             EngineCapacity = engineCapacity;
             FuelConsumptionPer100 = fuelConsumptionPer100;

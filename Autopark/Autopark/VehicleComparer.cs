@@ -8,7 +8,7 @@ namespace Autopark
 {
     internal class VehicleComparer : IComparer<Vehicle>
     {
-        public int Compare(Vehicle? firstVehicle, Vehicle? secondVehicle)
+        public int Compare(Vehicle? firstVehicle, Vehicle? secondVehicle) // Is it necessary to make them nullable?
         {
             return firstVehicle.Model.CompareTo(secondVehicle.Model);
         }
