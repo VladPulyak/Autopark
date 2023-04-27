@@ -11,7 +11,7 @@ namespace Autopark
     {
         public int Count { get; set; }
         private int Head { get; set; } = 0;
-        private int Tail { get; set; } = 0;  // No need to initialize here
+        private int Tail { get; set; }  // No need to initialize here МОжно убрать и в местах заменить на Count
         public CustomQueue(IEnumerable<T> enumerable)
         {
             QueueWithVehicles = enumerable.ToArray();

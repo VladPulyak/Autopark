@@ -13,7 +13,5 @@ namespace Autopark
             EngineCapacity = engineCapacity;
             FuelConsumptionPer100 = fuelConsumptionPer100;
         }
-
-
     }
 }

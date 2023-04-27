@@ -88,7 +88,7 @@ while (operation != -1)
                     Console.WriteLine($"{autopark.VehiclesList[i].Model} is comming to garage");
                     Thread.Sleep(1000);
                 }
-                Console.WriteLine("====================");
+                Console.WriteLine("===================="); // сделать индекс заполненности гаража 
                 for (int i = 0; i < autopark.VehiclesList.Count; i++)
                 {
                     var element = stack.Pop();

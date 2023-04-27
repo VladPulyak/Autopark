@@ -8,7 +8,7 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\admin\\.nuget\\packages\\": {}
+    "C:\\Users\\vladp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -16,11 +16,11 @@
       "projectUniqueName": "D:\\.NET projects\\DevIncubatorProjects\\Autopark\\Autopark\\Autopark\\Autopark.csproj",
       "projectName": "Autopark",
       "projectPath": "D:\\.NET projects\\DevIncubatorProjects\\Autopark\\Autopark\\Autopark\\Autopark.csproj",
-      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\vladp\\.nuget\\packages\\",
       "outputPath": "D:\\.NET projects\\DevIncubatorProjects\\Autopark\\Autopark\\Autopark\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vladp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

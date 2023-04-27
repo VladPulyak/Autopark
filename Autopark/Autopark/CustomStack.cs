@@ -8,32 +8,34 @@ namespace Autopark
 {
     internal class CustomStack<T> where T : class // Discuss realisation
     {
-        public CustomStack(int countOsElements) //Naming
+        public CustomStack(int countOfElements) //Naming +
         {
-            Count = countOsElements;
-            Stack = new T[countOsElements];
+            Capacity = countOfElements;
+            Stack = new T[countOfElements];
         }
 
-        public CustomStack(IEnumerable<T> enumerable)
+        public CustomStack(T[] enumerable) //передавать количество места в гараже
         {
-            Stack = enumerable.Reverse().ToArray(); // No need to reverse it
-            Count = enumerable.Count(); //?
+            Stack = enumerable;
+            Capacity = enumerable.Count(); //?
         }
 
         private T[] Stack { get; set; }
-        public int Count { get; set; } = 0; // No need to initialize here
+        public int Capacity { get; set; } // No need to initialize here Вместимость гаража
+        public int CountOfCars { get; set; } // текущее кол-во машин
 
-        public void Push(T element)
+        public void Push(T element) // сделать проверку остались ли места в гараже (Capacity - CountOfCars) <= 0 или Capacity == CountOfCars Можно сделать тут Console.WriteLine("Гараж заполнен") или return 
         {
-            Stack[Count - 1] = element;
-            Count--;
+            Stack[CountOfCars] = element;
+            CountOfCars++;
         }
 
         public T Pop()
         {
-            T item = Stack[Count]; // Should be count - 1
-            Count++;
-            Stack[Count - 1] = null;
+            T item = Stack[CountOfCars - 1]; // Should be count - 1
+            //Capacity++;
+            Stack[CountOfCars] = null;
+            CountOfCars--;
             return item;
         }
     }
