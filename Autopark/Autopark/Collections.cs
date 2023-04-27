@@ -11,8 +11,6 @@ namespace Autopark
     {
         public Collections(string typesFileName, string rentsFileName, string vehiclesFileName)
         {
-            //TypesList = new List<VehicleType>(); // No need to initialise it here
-            //VehiclesList = new List<Vehicle>(); // No need to initialise it here
             TypesList = ParseVehicleTypes(typesFileName);
             VehiclesList = ParseVehicles(vehiclesFileName);
             LoadRents(rentsFileName);
@@ -25,7 +23,7 @@ namespace Autopark
             var listWithVehicleTypes = new List<VehicleType>();
             using (StreamReader reader = new StreamReader(path))
             {
-                string line; // No need to initialize it here
+                string line;
 
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -42,7 +40,7 @@ namespace Autopark
             var listWithVehicles = new List<Vehicle>();
             using (StreamReader reader = new StreamReader(path))
             {
-                string line; // No need to initialise it here
+                string line;
 
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -115,24 +113,28 @@ namespace Autopark
             var typeIndex = int.Parse(parameters[1]);
             var color = (Color)Enum.Parse(typeof(Color), parameters[7]);
             AbstractEngine engine;
-
-            if (parameters[8] == "Diesel") // You can use "switch" instead of multiple "if else".
+            switch (parameters[8])
             {
-                engine = new DieselEngine(double.Parse(parameters[9]), double.Parse(parameters[10]));
-                engine.TypeName = parameters[8];
-                engine.TaxCoefficient = 1.2;
-            }
-            else if (parameters[8] == "Gasoline")
-            {
-                engine = new DieselEngine(double.Parse(parameters[9]), double.Parse(parameters[10])); //GasolineEngine
-                engine.TypeName = parameters[8];
-                engine.TaxCoefficient = 1;
-            }
-            else
-            {
-                engine = new ElectricalEngine(double.Parse(parameters[10]));
-                engine.TypeName = parameters[8];
-                engine.TaxCoefficient = 0.1;
+                case "Diesel":
+                    {
+                        engine = new DieselEngine(double.Parse(parameters[9]), double.Parse(parameters[10]));
+                        break;
+                    }
+                case "Gasoline":
+                    {
+                        engine = new GasolineEngine(double.Parse(parameters[9]), double.Parse(parameters[10]));
+                        break;
+                    }
+                case "Electrical":
+                    {
+                        engine = new ElectricalEngine(double.Parse(parameters[10]));
+                        break;
+                    }
+                default:
+                    {
+                        engine = new DieselEngine();
+                        break;
+                    }
             }
             return new Vehicle(TypesList[typeIndex - 1], parameters[2], parameters[3], double.Parse(parameters[4]), int.Parse(parameters[5]), int.Parse(parameters[6]), color, double.Parse(parameters[11]))
             {

@@ -58,14 +58,13 @@ namespace Autopark
             return (Weight * 0.013) + (Type.TaxCoefficient * Engine.TaxCoefficient * 30) + 5;
         }
 
-        public override string ToString() //Why is this method commented out?
+        public override string ToString()
         {
             string resultString = $"{Type}, {Model}, {RegistrationNumber}, {Weight}, {ManufactureYear}, {Mileage}, {Color}, {TankCapacity}, {GetCalcTaxPerMonth()}";
-            Console.WriteLine(resultString); //It should not be in overrided ToString() method
             return resultString;
         }
 
-        public override bool Equals(object obj) // Is it necessary to make it nullable?
+        public override bool Equals(object obj)
         {
             var vehicle = obj as Vehicle;
 
@@ -76,36 +75,23 @@ namespace Autopark
                     return true;
                 }
                 return false;
-                //else // No needs in else statement
-                //{
-                //    return false;
-                //}
             }
-            else // No needs in else statement
-            {
-                throw new NullReferenceException("This object is not vehicle"); //It's better to use NullReferenceException
-            }
+            throw new NullReferenceException("This object is not vehicle");
         }
-        public int CompareTo(Vehicle secondVehicle) // Is it necessary to make it nullable?
+        public int CompareTo(Vehicle secondVehicle)
         {
             double taxOfFirstVehicle = GetCalcTaxPerMonth();
             double taxOfSecondVehicle = secondVehicle.GetCalcTaxPerMonth();
 
             if (taxOfFirstVehicle > taxOfSecondVehicle)
             {
-                return 1; // This condition should return 1
+                return 1;
             }
             else if (taxOfFirstVehicle < taxOfSecondVehicle)
             {
-                return -1; //And this condition should return -1
+                return -1;
             }
             return 0;
-            //else
-            //{
-            //    return 0;
-            //}
         }
-
-
     }
 }

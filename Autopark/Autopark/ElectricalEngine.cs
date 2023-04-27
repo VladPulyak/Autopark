@@ -8,12 +8,17 @@ namespace Autopark
 {
     internal class ElectricalEngine : AbstractEngine
     {
-        public double ElectricityConsumption { get; set; }
-        public ElectricalEngine(double electricityConsumption) // There should be 'base' construction
+        public ElectricalEngine()
+        {
+            
+        }
+
+        public ElectricalEngine(double electricityConsumption) : base("Electrical", 0.1)
         {
             ElectricityConsumption = electricityConsumption;
         }
 
+        public double ElectricityConsumption { get; set; }
         public override double GetMaxKilometers(double batterySize)
         {
             return batterySize / ElectricityConsumption;

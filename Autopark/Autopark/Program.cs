@@ -26,7 +26,7 @@ while (operation != -1)
                     Engine = new DieselEngine(2.0, 9),
                     CarId = 10
                 };
-                autopark.Print(vehicle);
+                //autopark.Print(vehicle);
                 autopark.InsertVehicle(9999, vehicle);
                 Console.WriteLine();
                 break;
@@ -36,7 +36,7 @@ while (operation != -1)
                 Console.WriteLine($"Enter index of deleted vehicle: ");
                 int index = int.Parse(Console.ReadLine());
                 Console.WriteLine("\nWe deleted this vehicle: ");
-                autopark.Print(autopark.VehiclesList[index - 1]);
+                //autopark.Print(autopark.VehiclesList[index - 1]);
                 autopark.DeleteVehicle(index - 1);
                 Console.WriteLine();
                 break;
