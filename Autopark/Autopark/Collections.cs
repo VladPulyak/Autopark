@@ -179,24 +179,6 @@ namespace Autopark
             return totalProfit;
         }
 
-        public void Print(Vehicle vehicle) //Why did you add this print? Переделать
-        {
-            Console.WriteLine("{0,-5}{1,-10}{2,-25}{3,-15}{4,-15}{5,-10}{6,-10}{7,-10}{8,-10}{9,-10}{10,-10}",
-                "Id", "Type", "ModelName", "Number", "Weight (kg)", "Year", "Mileage", "Color", "Income", "Tax", "Profit");
-            Console.WriteLine("{0,-5}{1,-10}{2,-25}{3,-15}{4,-15}{5,-10}{6,-10}{7,-10}{8,-10}{9,-10}{10,-10}",
-                                                                            vehicle.CarId,
-                                                                            vehicle.Type.TypeName,
-                                                                            vehicle.Model,
-                                                                            vehicle.RegistrationNumber,
-                                                                            vehicle.Weight,
-                                                                            vehicle.ManufactureYear,
-                                                                            vehicle.Mileage,
-                                                                            vehicle.Color,
-                                                                            vehicle.GetTotalIncome().ToString("0.00"),
-                                                                            vehicle.GetCalcTaxPerMonth().ToString("0.00"),
-                                                                            vehicle.GetTotalProfit().ToString("0.00"));
-        }
-
         public void Print()
         {
             Console.WriteLine("{0,-5}{1,-10}{2,-25}{3,-15}{4,-15}{5,-10}{6,-10}{7,-10}{8,-10}{9,-10}{10,-10}",

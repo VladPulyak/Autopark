@@ -53,16 +53,15 @@ while (operation != -1)
             }
         case 5:
             {
-                var queue = new CustomQueue<Vehicle>(autopark.VehiclesList.Count);
+                var countOfElementsInQueue = autopark.VehiclesList.Count;
+                var queue = new CustomQueue<Vehicle>(countOfElementsInQueue);
 
-                for (int i = 0; i < queue.Count; i++)
+                for (int i = 0; i < countOfElementsInQueue; i++)
                 {
                     Console.WriteLine($"{autopark.VehiclesList[i].Model} standing in queue");
                     Thread.Sleep(1000);
                     queue.Enqueue(autopark.VehiclesList[i]);
                 }
-
-                var countOfElementsInQueue = queue.Count;
 
                 for (int i = 0; i < countOfElementsInQueue; i++)
                 {
@@ -80,16 +79,31 @@ while (operation != -1)
             }
         case 6:
             {
-                var stack = new CustomStack<Vehicle>(autopark.VehiclesList.Count);
-
+                Console.WriteLine("Enter capacity of garage");
+                int capacity = int.Parse(Console.ReadLine());
+                var stack = new CustomStack<Vehicle>(capacity);
                 for (int i = 0; i < autopark.VehiclesList.Count; i++)
                 {
-                    stack.Push(autopark.VehiclesList[i]);
-                    Console.WriteLine($"{autopark.VehiclesList[i].Model} is comming to garage");
+                    var message = stack.Push(autopark.VehiclesList[i]);
+                    if (message == "Garage is full")
+                    {
+                        break;
+                    }
+                    Console.WriteLine(autopark.VehiclesList[i].Model);
+                    Console.WriteLine(message);
                     Thread.Sleep(1000);
                 }
-                Console.WriteLine("===================="); // сделать индекс заполненности гаража 
-                for (int i = 0; i < autopark.VehiclesList.Count; i++)
+                int countOfFreePlaces = stack.Capacity - stack.CountOfCars;
+                int countOfCars = stack.CountOfCars;
+                if (countOfFreePlaces == 0)
+                {
+                    Console.WriteLine("========= Garage is full =========");
+                }
+                else
+                {
+                    Console.WriteLine($"There are {countOfFreePlaces} free places in garage");
+                }
+                for (int i = 0; i < countOfCars; i++)
                 {
                     var element = stack.Pop();
                     Console.WriteLine($"{element.Model} left from garage");

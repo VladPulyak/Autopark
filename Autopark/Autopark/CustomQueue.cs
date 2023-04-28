@@ -9,40 +9,43 @@ namespace Autopark
 {
     internal class CustomQueue<T> where T : class
     {
-        public int Count { get; set; }
-        private int Head { get; set; } = 0;
-        private int Tail { get; set; }  // No need to initialize here МОжно убрать и в местах заменить на Count
-        public CustomQueue(IEnumerable<T> enumerable)
+        public CustomQueue()
         {
-            QueueWithVehicles = enumerable.ToArray();
-            Count = enumerable.Count();
+            
+        }
+        public CustomQueue(T[] queue)
+        {
+            QueueWithVehicles = queue;
+            Length = queue.Length;
+            CountOfCars = queue.Length;
         }
         public CustomQueue(int countOfVehicles)
         {
-            Count = countOfVehicles;
+            Length = countOfVehicles;
             QueueWithVehicles = new T[countOfVehicles];
         }
+        public int Length { get; set; }
+        public int CountOfCars { get; set; }
         private T[] QueueWithVehicles { get; set; }
 
         public void Enqueue(T vehicle)
         {
-            QueueWithVehicles[Tail] = vehicle;
-            Tail++;
+            QueueWithVehicles[CountOfCars] = vehicle;
+            CountOfCars++;
         }
 
         public T Dequeue()
         {
-            T vehicle = QueueWithVehicles[Head];
+            T vehicle = QueueWithVehicles[0];
             T temp;
 
-            for (int i = Head; i < Count - 1; i++)
+            for (int i = 0; i < CountOfCars - 1; i++)
             {
                 temp = QueueWithVehicles[i + 1];
                 QueueWithVehicles[i + 1] = QueueWithVehicles[i];
                 QueueWithVehicles[i] = temp;
             }
-            Count--;
-
+            CountOfCars--;
             return vehicle;
         }
 

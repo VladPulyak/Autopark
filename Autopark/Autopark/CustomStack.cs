@@ -6,35 +6,43 @@ using System.Threading.Tasks;
 
 namespace Autopark
 {
-    internal class CustomStack<T> where T : class // Discuss realisation
+    internal class CustomStack<T> where T : class
     {
-        public CustomStack(int countOfElements) //Naming +
+        public CustomStack()
+        {
+            
+        }
+        public CustomStack(int countOfElements)
         {
             Capacity = countOfElements;
             Stack = new T[countOfElements];
         }
 
-        public CustomStack(T[] enumerable) //передавать количество места в гараже
+        public CustomStack(T[] stack)
         {
-            Stack = enumerable;
-            Capacity = enumerable.Count(); //?
+            Stack = stack;
+            Capacity = stack.Count();
         }
 
         private T[] Stack { get; set; }
-        public int Capacity { get; set; } // No need to initialize here Вместимость гаража
-        public int CountOfCars { get; set; } // текущее кол-во машин
+        public int Capacity { get; set; }
+        public int CountOfCars { get; set; }
 
-        public void Push(T element) // сделать проверку остались ли места в гараже (Capacity - CountOfCars) <= 0 или Capacity == CountOfCars Можно сделать тут Console.WriteLine("Гараж заполнен") или return 
+        public string Push(T element)
         {
-            Stack[CountOfCars] = element;
-            CountOfCars++;
+            if ((Capacity - CountOfCars) > 0)
+            {
+                Stack[CountOfCars] = element;
+                CountOfCars++;
+                return "Vehicle is comming to garage";
+            }
+            return "Garage is full";
         }
 
         public T Pop()
         {
-            T item = Stack[CountOfCars - 1]; // Should be count - 1
-            //Capacity++;
-            Stack[CountOfCars] = null;
+            T item = Stack[CountOfCars - 1];
+            Stack[CountOfCars - 1] = null;
             CountOfCars--;
             return item;
         }
